@@ -1,4 +1,22 @@
-## Projeto Laravel 10 com as configurações iniciais.
+# Projeto Laravel 10 com as configurações iniciais pt_BR (português brasileiro).
+
+1.  sssssss
+
+```shell
+
+```
+
+2.  ssssssssss
+
+```shell
+
+```
+
+3.  sssss
+
+```shell
+
+```
 
 ## About Laravel
 
