@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\Admin\User;
+use App\Livewire\Admin\UserComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +24,6 @@ Route::view('profile', 'livewire.admin.users.profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::get('usuarios', [User::class, 'list'])->name('users.list')->middleware(['auth']);
+Route::get('usuarios', UserComponent::class)->name('users')->middleware(['auth']);
 
 require __DIR__.'/auth.php';
