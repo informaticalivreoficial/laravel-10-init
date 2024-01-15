@@ -18,12 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'email_adicional',
-        'password',
-        'remember_token',
-        'senha',
+        'name', 'password', 'remember_token', 'senha',
         'genero',
         'cpf',
         'rg',
@@ -35,18 +30,11 @@ class User extends Authenticatable
         //Endereço      
         'cep', 'rua', 'num', 'complemento', 'bairro', 'uf', 'cidade',
         //Contato
-        'telefone', 'celular', 'whatsapp', 'skype', 'telegram',
-        'facebook',
-        'twitter',
-        'instagram',
-        'linkedin',
-        'vimeo',
-        'youtube',
-        'fliccr', 
-        'admin',
-        'client',
-        'editor',
-        'superadmin',
+        'telefone', 'celular', 'whatsapp', 'skype', 'telegram', 'email', 'email_adicional',
+        //Social
+        'facebook', 'twitter', 'instagram', 'linkedin', 'vimeo', 'youtube', 'fliccr', 
+        // Cargo
+        'admin', 'client', 'editor', 'superadmin',
         'status',
         'notasadicionais'
     ];
