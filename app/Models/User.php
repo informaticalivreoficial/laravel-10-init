@@ -58,4 +58,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Accerssors and Mutators
+    */
+
+    //Exibe a função do usuário
+    public function getFuncao() {
+        if($this->admin == 1 && $this->client == 0 && $this->superadmin == 0){
+            return 'Administrador';
+        }elseif($this->admin == 0 && $this->client == 1 && $this->superadmin == 0){
+            return 'Cliente';
+        }elseif($this->admin == 0 && $this->client == 0 && $this->editor == 1 && $this->superadmin == 0){
+            return 'Editor';
+        }elseif($this->admin == 1 && $this->client == 1 && $this->superadmin == 0){
+            return 'Administrador/Cliente'; 
+        }else{
+            return 'Super Administrador'; 
+        }
+    }
 }

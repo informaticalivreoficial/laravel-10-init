@@ -24,6 +24,6 @@ Route::view('profile', 'livewire.admin.users.profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::get('usuarios', UserComponent::class)->name('users')->middleware(['auth']);
+Route::get('usuarios', UserComponent::class)->name('users.index')->middleware(['auth']);
 
 require __DIR__.'/auth.php';
