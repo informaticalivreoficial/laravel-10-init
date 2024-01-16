@@ -19,24 +19,24 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'password', 'remember_token', 'senha',
-        'genero',
+        'gender',
         'cpf',
         'rg',
-        'rg_expedicao',
-        'nasc',
-        'naturalidade',
-        'estado_civil',
+        'rg_expedition',
+        'birthday',
+        'naturalness',
+        'civil_status',
         'avatar',  
         //Endereço      
-        'cep', 'rua', 'num', 'complemento', 'bairro', 'uf', 'cidade',
+        'postcode', 'street', 'number', 'complement', 'neighborhood', 'state', 'city',
         //Contato
-        'telefone', 'celular', 'whatsapp', 'skype', 'telegram', 'email', 'email_adicional',
+        'phone', 'cell_phone', 'whatsapp', 'skype', 'telegram', 'email', 'additional_email',
         //Social
         'facebook', 'twitter', 'instagram', 'linkedin', 'vimeo', 'youtube', 'fliccr', 
         // Cargo
         'admin', 'client', 'editor', 'superadmin',
         'status',
-        'notasadicionais'
+        'information'
     ];
 
     /**
@@ -76,5 +76,68 @@ class User extends Authenticatable
         }else{
             return 'Super Administrador'; 
         }
+    }
+
+    public function setCellPhoneAttribute($value)
+    {
+        $this->attributes['cell_phone'] = (!empty($value) ? $this->clearField($value) : null);
+    }
+    
+    public function getCellPhoneAttribute($value)
+    {
+        if (empty($value)) {
+            return null;
+        }
+        return  
+            substr($value, 0, 0) . '(' .
+            substr($value, 0, 2) . ') ' .
+            substr($value, 2, 5) . '-' .
+            substr($value, 7, 4) ;
+    }
+
+    public function setAdminAttribute($value)
+    {
+        $this->attributes['admin'] = ($value === true || $value === 'on' ? 1 : 0);
+    }
+
+    public function setEditorAttribute($value)
+    {
+        $this->attributes['editor'] = ($value === true || $value === 'on' ? 1 : 0);
+    }
+
+    public function setClientAttribute($value)
+    {
+        $this->attributes['client'] = ($value === true || $value === 'on' ? 1 : 0);
+    }
+    
+    public function setSuperAdminAttribute($value)
+    {
+        $this->attributes['superadmin'] = ($value === true || $value === 'on' ? 1 : 0);
+    }
+
+    private function convertStringToDouble(?string $param)
+    {
+        if (empty($param)) {
+            return null;
+        }
+
+        return str_replace(',', '.', str_replace('.', '', $param));
+    }
+
+    private function convertStringToDate(?string $param)
+    {
+        if (empty($param)) {
+            return null;
+        }
+        list($day, $month, $year) = explode('/', $param);
+        return (new \DateTime($year . '-' . $month . '-' . $day))->format('Y-m-d');
+    }
+    
+    private function clearField(?string $param)
+    {
+        if (empty($param)) {
+            return null;
+        }
+        return str_replace(['.', '-', '/', '(', ')', ' '], '', $param);
     }
 }

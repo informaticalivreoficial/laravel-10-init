@@ -11,10 +11,10 @@
             <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
               <div>
                 <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                  Users
+                  Usuários
                 </h2>
                 <p class="text-sm text-gray-600 dark:text-gray-400">
-                  Add users, edit and more.
+                  Adicionar, editar ou excluir.
                 </p>
               </div>
   
@@ -49,7 +49,7 @@
                   <th scope="col" class="ps-6 lg:ps-3 xl:ps-0 pe-6 py-3 text-start">
                     <div class="flex items-center gap-x-2">
                       <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                        Name
+                        Nome
                       </span>
                     </div>
                   </th>

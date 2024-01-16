@@ -17,34 +17,34 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('senha');
+            $table->string('code')->nullable();
             $table->rememberToken();  
 
             $table->dateTime('last_login_at')->nullable();
             $table->string('last_login_ip')->nullable();
 
-            $table->string('genero')->nullable();
+            $table->string('gender')->nullable();
             $table->string('cpf')->nullable();
             $table->string('rg', 20)->nullable();
-            $table->string('rg_expedicao')->nullable();
-            $table->date('nasc')->nullable();
-            $table->string('naturalidade')->nullable();
-            $table->string('estado_civil')->nullable();
+            $table->string('rg_expedition')->nullable();
+            $table->date('birthday')->nullable();
+            $table->string('naturalness')->nullable();
+            $table->string('civil_status')->nullable();
             $table->string('avatar')->nullable();
-            $table->string('email_adicional')->nullable();
+            $table->string('additional_email')->nullable();
 
             /** address */
-            $table->string('cep')->nullable();
-            $table->string('rua')->nullable();
-            $table->string('num')->nullable();
-            $table->string('complemento')->nullable();
-            $table->string('bairro')->nullable();
-            $table->string('uf')->nullable();
-            $table->string('cidade')->nullable();
+            $table->string('postcode')->nullable();
+            $table->string('street')->nullable();
+            $table->string('number')->nullable();
+            $table->string('complement')->nullable();
+            $table->string('neighborhood')->nullable();
+            $table->string('state')->nullable();
+            $table->string('city')->nullable();
 
             /** contact */
-            $table->string('telefone')->nullable();
-            $table->string('celular')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('cell_phone')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('skype')->nullable();
             $table->string('telegram')->nullable();
@@ -65,7 +65,7 @@ return new class extends Migration
             $table->boolean('editor')->nullable();            
 
             $table->integer('status')->default('0');
-            $table->text('notasadicionais')->nullable();
+            $table->text('information')->nullable();
 
             $table->timestamps();
         });
